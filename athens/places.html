@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famous Places in Athens - Greek Tourism</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #ffd700;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 3.5rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s;
+        }
+
+        .explore-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .attractions-section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .attraction-card {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .attraction-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .attraction-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .attraction-info {
+            padding: 2rem;
+        }
+
+        .attraction-info h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .attraction-info p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-facts {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .quick-facts h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-facts ul {
+            list-style: none;
+        }
+
+        .quick-facts li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Athens</a></li>
+            <li><a href="#">Crete</a></li>
+            <li><a href="#">Mykonos</a></li>
+            <li><a href="#">Delphi</a></li>
+            <li><a href="#">Santorini</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Discover Athens</h1>
+            <p>Explore the birthplace of democracy and the cradle of Western civilization</p>
+            <a href="#attractions" class="explore-btn">Start Exploring</a>
+        </div>
+    </div>
+
+    <section id="attractions" class="attractions-section">
+        <h2 class="section-title">Must-Visit Attractions</h2>
+
+        <div class="attraction-card">
+            <img src="/api/placeholder/800/600" alt="Acropolis" class="attraction-img">
+            <div class="attraction-info">
+                <h3>The Acropolis</h3>
+                <p>The crown jewel of Athens, this ancient citadel sits atop a limestone hill and includes the iconic Parthenon temple. Built in the 5th century BC, it stands as a symbol of Classical Greece and the birth of democracy.</p>
+                <div class="quick-facts">
+                    <h4>Quick Facts</h4>
+                    <ul>
+                        <li>🕒 Opening Hours: 8:00 AM - 7:30 PM</li>
+                        <li>💶 Entry Fee: €20 (April-October), €10 (November-March)</li>
+                        <li>⏱️ Suggested Visit: 2-3 hours</li>
+                        <li>📍 Location: Central Athens</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="attraction-card">
+            <div class="attraction-info">
+                <h3>Ancient Agora</h3>
+                <p>Once the heart of ancient Athens, the Agora was the center of political, commercial, administrative and social activity. Highlights include the Temple of Hephaestus and the Stoa of Attalos.</p>
+                <div class="quick-facts">
+                    <h4>Quick Facts</h4>
+                    <ul>
+                        <li>🕒 Opening Hours: 8:00 AM - 5:00 PM</li>
+                        <li>💶 Entry Fee: €10</li>
+                        <li>⏱️ Suggested Visit: 1-2 hours</li>
+                        <li>📍 Location: Northwest of Acropolis</li>
+                    </ul>
+                </div>
+            </div>
+            <img src="/api/placeholder/800/600" alt="Ancient Agora" class="attraction-img">
+        </div>
+
+        <div class="attraction-card">
+            <img src="/api/placeholder/800/600" alt="Plaka" class="attraction-img">
+            <div class="attraction-info">
+                <h3>Plaka Neighborhood</h3>
+                <p>The oldest residential neighborhood in Athens, Plaka is known for its narrow cobblestone streets, neoclassical architecture, shops selling traditional goods, and charming restaurants.</p>
+                <div class="quick-facts">
+                    <h4>Quick Facts</h4>
+                    <ul>
+                        <li>🏺 Known for: Traditional shops & restaurants</li>
+                        <li>🎨 Highlights: Street art, architecture</li>
+                        <li>⏱️ Suggested Visit: 3-4 hours</li>
+                        <li>🍽️ Best time: Evening for dinner</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="attraction-card">
+            <div class="attraction-info">
+                <h3>Temple of Olympian Zeus</h3>
+                <p>Once the largest temple in Greece, the Temple of Olympian Zeus took nearly 700 years to complete. Today, its remaining columns stand as a testament to ancient Greek architecture and ambition.</p>
+                <div class="quick-facts">
+                    <h4>Quick Facts</h4>
+                    <ul>
+                        <li>🕒 Opening Hours: 8:00 AM - 6:30 PM</li>
+                        <li>💶 Entry Fee: €6</li>
+                        <li>⏱️ Suggested Visit: 30-60 minutes</li>
+                        <li>📍 Location: 500m SE of Syntagma Square</li>
+                    </ul>
+                </div>
+            </div>
+            <img src="/api/placeholder/800/600" alt="Temple of Olympian Zeus" class="attraction-img">
+        </div>
+
+        <div class="attraction-card">
+            <img src="/api/placeholder/800/600" alt="Acropolis Museum" class="attraction-img">
+            <div class="attraction-info">
+                <h3>Acropolis Museum</h3>
+                <p>This modern museum houses thousands of ancient Greek artifacts found on the Acropolis and surrounding areas. The building itself is an architectural marvel with a glass floor revealing excavated ruins below.</p>
+                <div class="quick-facts">
+                    <h4>Quick Facts</h4>
+                    <ul>
+                        <li>🕒 Opening Hours: 9:00 AM - 5:00 PM</li>
+                        <li>💶 Entry Fee: €10</li>
+                        <li>⏱️ Suggested Visit: 2-3 hours</li>
+                        <li>📍 Location: Dionysiou Areopagitou Street</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Greek Tourism Guide | Athens Attractions</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animation
+        const cards = document.querySelectorAll('.attraction-card');
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        // Apply initial styles and observe each card
+        cards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

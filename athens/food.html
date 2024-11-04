@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athens Food Guide - Greek Tourism</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: #1a5f7a;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 3.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .food-section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #1a5f7a;
+            margin-bottom: 3rem;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 1.5rem;
+        }
+
+        .food-info h3 {
+            color: #1a5f7a;
+            margin-bottom: 0.5rem;
+        }
+
+        .food-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .drink-section {
+            background-color: #f5f5f5;
+            padding: 4rem 2rem;
+        }
+
+        footer {
+            background-color: #1a5f7a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Athens</a></li>
+            <li><a href="#">Crete</a></li>
+            <li><a href="#">Mykonos</a></li>
+            <li><a href="#">Delphi</a></li>
+            <li><a href="#">Santorini</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Athens Food Guide</h1>
+            <p>Discover the authentic flavors of Greek cuisine</p>
+        </div>
+    </div>
+
+    <section class="food-section">
+        <h2 class="section-title">Popular Local Dishes</h2>
+        <div class="food-grid">
+            <div class="food-card">
+                <img src="/api/placeholder/400/300" alt="Moussaka" class="food-img">
+                <div class="food-info">
+                    <h3>Moussaka</h3>
+                    <p>A hearty layered dish of eggplant, spiced ground meat, and béchamel sauce. A true Greek classic!</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <img src="/api/placeholder/400/300" alt="Souvlaki" class="food-img">
+                <div class="food-info">
+                    <h3>Souvlaki</h3>
+                    <p>Grilled meat skewers served with pita bread, tzatziki, and fresh vegetables.</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <img src="/api/placeholder/400/300" alt="Greek Salad" class="food-img">
+                <div class="food-info">
+                    <h3>Horiatiki (Greek Salad)</h3>
+                    <p>Fresh tomatoes, cucumbers, onions, olives, and feta cheese drizzled with olive oil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="drink-section">
+        <h2 class="section-title">Traditional Drinks</h2>
+        <div class="food-grid">
+            <div class="food-card">
+                <img src="/api/placeholder/400/300" alt="Ouzo" class="food-img">
+                <div class="food-info">
+                    <h3>Ouzo</h3>
+                    <p>An anise-flavored aperitif that's traditionally served with mezedes (appetizers).</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <img src="/api/placeholder/400/300" alt="Greek Coffee" class="food-img">
+                <div class="food-info">
+                    <h3>Greek Coffee</h3>
+                    <p>Rich, strong coffee served in a small cup with grounds at the bottom.</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <img src="/api/placeholder/400/300" alt="Retsina" class="food-img">
+                <div class="food-info">
+                    <h3>Retsina</h3>
+                    <p>Traditional Greek white wine flavored with pine resin, a unique taste of Greece.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Greek Tourism Guide | Athens Food Experience</p>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to food cards on scroll
+        const foodCards = document.querySelectorAll('.food-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        foodCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

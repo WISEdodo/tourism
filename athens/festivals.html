@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Festivals in Athens - Discover Greece</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1920/500');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .nav-buttons {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background: rgba(0,0,0,0.7);
+        }
+
+        .festival-grid {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .festival-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .festival-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .festival-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .festival-content {
+            padding: 2rem;
+        }
+
+        .festival-date {
+            background-color: #1a5f7a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .festival-content h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .festival-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .festival-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .detail-item strong {
+            min-width: 100px;
+            color: #1a5f7a;
+        }
+
+        .upcoming-festivals {
+            background-color: #f5f5f5;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .upcoming-title {
+            text-align: center;
+            color: #1a5f7a;
+            margin-bottom: 3rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .calendar-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .month-label {
+            color: #1a5f7a;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .event-list {
+            list-style: none;
+        }
+
+        .event-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #1a5f7a;
+        }
+
+        footer {
+            background-color: #1a5f7a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .festival-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-buttons">
+            <a href="../index.html" class="nav-button">← Home</a>
+            <a href="index.html" class="nav-button">← Back to Athens</a>
+        </div>
+        <div class="hero-content">
+            <h1>Cultural Festivals in Athens</h1>
+            <p>Experience the vibrant celebrations of Greek culture and tradition</p>
+        </div>
+    </header>
+
+    <div class="festival-grid">
+        <div class="festival-card">
+            <div class="festival-image" style="background-image: url('/api/placeholder/600/400')"></div>
+            <div class="festival-content">
+                <span class="festival-date">June - August</span>
+                <h2>Athens & Epidaurus Festival</h2>
+                <p>Greece's premier cultural festival featuring theater, dance, and musical performances at historic venues including the Odeon of Herodes Atticus.</p>
+                <div class="festival-details">
+                    <div class="detail-item">
+                        <strong>Location:</strong> Multiple venues
+                    </div>
+                    <div class="detail-item">
+                        <strong>Price:</strong> Varies by performance
+                    </div>
+                    <div class="detail-item">
+                        <strong>Highlights:</strong> Ancient drama performances
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="festival-card">
+            <div class="festival-image" style="background-image: url('/api/placeholder/600/400')"></div>
+            <div class="festival-content">
+                <span class="festival-date">September</span>
+                <h2>Athens International Film Festival</h2>
+                <p>A celebration of international cinema featuring premieres, special screenings, and events with renowned filmmakers and artists.</p>
+                <div class="festival-details">
+                    <div class="detail-item">
+                        <strong>Location:</strong> Various theaters
+                    </div>
+                    <div class="detail-item">
+                        <strong>Price:</strong> €8-12 per screening
+                    </div>
+                    <div class="detail-item">
+                        <strong>Highlights:</strong> International premieres
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="festival-card">
+            <div class="festival-image" style="background-image: url('/api/placeholder/600/400')"></div>
+            <div class="festival-content">
+                <span class="festival-date">March</span>
+                <h2>Athens Street Food Festival</h2>
+                <p>A gastronomic celebration featuring the best of Greek and international street food, cooking demonstrations, and live music.</p>
+                <div class="festival-details">
+                    <div class="detail-item">
+                        <strong>Location:</strong> Palio Amaxostasio
+                    </div>
+                    <div class="detail-item">
+                        <strong>Price:</strong> Free entrance
+                    </div>
+                    <div class="detail-item">
+                        <strong>Highlights:</strong> Food tastings
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="upcoming-festivals">
+        <h2 class="upcoming-title">Festival Calendar</h2>
+        <div class="calendar-grid">
+            <div class="calendar-item">
+                <div class="month-label">Spring (March - May)</div>
+                <ul class="event-list">
+                    <li>Athens Street Food Festival - March</li>
+                    <li>Athens Digital Arts Festival - April</li>
+                    <li>Athens Jazz Festival - May</li>
+                </ul>
+            </div>
+
+            <div class="calendar-item">
+                <div class="month-label">Summer (June - August)</div>
+                <ul class="event-list">
+                    <li>Athens & Epidaurus Festival</li>
+                    <li>Rockwave Festival - July</li>
+                    <li>Athens Open Air Film Festival</li>
+                </ul>
+            </div>
+
+            <div class="calendar-item">
+                <div class="month-label">Autumn (September - November)</div>
+                <ul class="event-list">
+                    <li>Athens International Film Festival</li>
+                    <li>Athens Biennale - October</li>
+                    <li>Athens Marathon - November</li>
+                </ul>
+            </div>
+
+            <div class="calendar-item">
+                <div class="month-label">Winter (December - February)</div>
+                <ul class="event-list">
+                    <li>Christmas Factory</li>
+                    <li>Athens New Year's Eve Festival</li>
+                    <li>Athens Fashion Week - February</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Discover Greece. All rights reserved.</p>
+    </footer>
+</body>
+</html>

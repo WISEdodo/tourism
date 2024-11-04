@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Greece</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/600');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        nav {
+            background-color: #1a5f7a;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .destinations {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .destination-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-content h2 {
+            color: #1a5f7a;
+            margin-bottom: 1rem;
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            background-color: #1a5f7a;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .explore-btn:hover {
+            background-color: #134b61;
+        }
+
+        footer {
+            background-color: #1a5f7a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <h1>Discover Greece</h1>
+            <p>Experience the cradle of Western civilization</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#athens">Athens</a></li>
+            <li><a href="#crete">Crete</a></li>
+            <li><a href="#mykonos">Mykonos</a></li>
+            <li><a href="#delphi">Delphi</a></li>
+            <li><a href="#santorini">Santorini</a></li>
+        </ul>
+    </nav>
+
+    <main class="destinations">
+        <div class="destination-card" id="athens">
+            <div class="card-image" style="background-image: url('/api/placeholder/800/400')"></div>
+            <div class="card-content">
+                <h2>Athens</h2>
+                <p>The heart of ancient Greece, Athens is a city where history comes alive. Home to iconic landmarks like the Acropolis and Parthenon, it seamlessly blends ancient wonders with modern urban life. Experience world-class museums, vibrant neighborhoods, and the birthplace of democracy.</p>
+                <a href="athens/index.html" class="explore-btn">Explore Athens</a>
+            </div>
+        </div>
+
+        <div class="destination-card" id="crete">
+            <div class="card-image" style="background-image: url('/api/placeholder/800/400')"></div>
+            <div class="card-content">
+                <h2>Crete</h2>
+                <p>Greece's largest island offers a treasure trove of experiences, from ancient Minoan palaces to stunning beaches. Discover dramatic mountains, crystal-clear waters, and authentic Greek cuisine in this Mediterranean paradise.</p>
+                <a href="crete.html" class="explore-btn">Explore Crete</a>
+            </div>
+        </div>
+
+        <div class="destination-card" id="mykonos">
+            <div class="card-image" style="background-image: url('/api/placeholder/800/400')"></div>
+            <div class="card-content">
+                <h2>Mykonos</h2>
+                <p>Famous for its pristine beaches, vibrant nightlife, and iconic windmills, Mykonos embodies the ultimate Greek island experience. Wander through charming whitewashed streets and enjoy world-class restaurants and beach clubs.</p>
+                <a href="mykonos.html" class="explore-btn">Explore Mykonos</a>
+            </div>
+        </div>
+
+        <div class="destination-card" id="delphi">
+            <div class="card-image" style="background-image: url('/api/placeholder/800/400')"></div>
+            <div class="card-content">
+                <h2>Delphi</h2>
+                <p>Once considered the center of the world, Delphi is an ancient sanctuary that will transport you back in time. Explore the Temple of Apollo, the ancient theater, and learn about the famous Oracle of Delphi.</p>
+                <a href="delphi.html" class="explore-btn">Explore Delphi</a>
+            </div>
+        </div>
+
+        <div class="destination-card" id="santorini">
+            <div class="card-image" style="background-image: url('/api/placeholder/800/400')"></div>
+            <div class="card-content">
+                <h2>Santorini</h2>
+                <p>With its dramatic caldera views, stunning sunsets, and blue-domed churches, Santorini is the quintessential Greek island. Experience luxury cave hotels, volcanic beaches, and world-renowned wineries.</p>
+                <a href="santorini.html" class="explore-btn">Explore Santorini</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Discover Greece. All rights reserved.</p>
+    </footer>
+</body>
+</html>
