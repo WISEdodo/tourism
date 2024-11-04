@@ -11,39 +11,86 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1920/500');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/600');
             background-size: cover;
             background-position: center;
-            height: 40vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            position: relative;
+            overflow: hidden; 
+        }
+        .header-img{
+        width: 100vw;
+        height: 80vh;
+        object-fit: fill; 
+        filter: brightness(50%); 
+        }
+        .hero-content {
+        position: absolute;
+        color: white; 
+        text-align: center;
+        top: 50%; 
+        transform: translateY(-50%);
         }
 
-        .nav-buttons {
+    .hero-content h1 {
+        font-size: 2.5rem; /* Adjust heading size */
+        margin-bottom: 0.5rem; /* Spacing below heading */
+    }
+
+    .hero-content p {
+        font-size: 1.25rem; /* Adjust paragraph size */
+    }
+        .back-home {
             position: absolute;
             top: 1rem;
             left: 1rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .nav-button {
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
             background: rgba(0,0,0,0.5);
             border-radius: 5px;
+        }
+
+        nav {
+            background-color: #7091e6;
+            padding: 1.2rem;
+            position: sticky;
+            top:0;
+            z-index: 10;
+        }
+        .title{
+            align-self: flex-start;
+            font-size: x-large;
+        }
+        .middle{
+            display: flex;
+            gap:0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        .nav-button:hover {
-            background: rgba(0,0,0,0.7);
+        nav a:hover {
+            background-color: #3d52a0;
         }
 
         .timeline-container {
@@ -55,6 +102,7 @@
         .timeline {
             position: relative;
             padding: 2rem 0;
+            margin: 1rem;
         }
 
         .timeline::before {
@@ -69,14 +117,14 @@
 
         .timeline-item {
             display: flex;
-            justify-content: flex-end;
+            justify-content:center;
             padding-right: 50%;
             position: relative;
             margin-bottom: 3rem;
         }
 
         .timeline-item:nth-child(even) {
-            justify-content: flex-start;
+            justify-content: center;
             padding-right: 0;
             padding-left: 50%;
         }
@@ -183,11 +231,27 @@
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <div>
+                <li><a href="../index.html" class="title">Greecious</a></li>
+            </div>
+            <div class="middle">
+                <li><a href="history.html">History</a></li>
+                <li><a href="festivals.html">Cultural Festivals</a></li>
+                <li><a href="places.html">Places to Visit</a></li>
+                <li><a href="food.html">Food & Drink</a></li>
+                <li><a href="guide.html">Travel Guide</a></li>
+            </div>
+            <div>
+
+            </div>
+        </ul>
+    </nav>
+    
     <header>
-        <div class="nav-buttons">
-            <a href="../index.html" class="nav-button">← Home</a>
-            <a href="index.html" class="nav-button">← Back to Athens</a>
-        </div>
+        <img src="../assets/athens/header.jpg" alt="image" class="header-img">
+
         <div class="hero-content">
             <h1>The History of Athens</h1>
             <p>Journey through time in the cradle of Western civilization</p>
@@ -203,7 +267,6 @@
                     <p>The earliest human presence in Athens was marked by settlements around the Acropolis, taking advantage of the naturally defensible position and nearby water sources.</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">1400-1200 BCE</div>
@@ -211,7 +274,6 @@
                     <p>Athens became a major center of Mycenaean civilization, with the Acropolis serving as a fortress for the local ruler. The city's first palace was built during this time.</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">508 BCE</div>
@@ -219,7 +281,6 @@
                     <p>Cleisthenes established the world's first democratic system of government in Athens, introducing reforms that would influence political systems for millennia to come.</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">447-432 BCE</div>
@@ -227,7 +288,6 @@
                     <p>Under Pericles' leadership, Athens entered its Golden Age. The Parthenon was built, and the city became the center of art, philosophy, and literature in the ancient world.</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">86 BCE</div>
@@ -240,15 +300,15 @@
 
     <div class="image-gallery">
         <div class="gallery-item">
-            <img src="/api/placeholder/400/300" alt="Ancient Acropolis">
+            <img src="../assets/athens/ancient.jpeg" alt="Ancient Acropolis">
             <div class="gallery-caption">The Acropolis in Ancient Times</div>
         </div>
         <div class="gallery-item">
-            <img src="/api/placeholder/400/300" alt="Classical Athens">
+            <img src="../assets/athens/life.jpg" alt="Classical Athens">
             <div class="gallery-caption">Life in Classical Athens</div>
         </div>
         <div class="gallery-item">
-            <img src="/api/placeholder/400/300" alt="Modern Athens">
+            <img src="../assets/athens/modern.jpg" alt="Modern Athens">
             <div class="gallery-caption">Athens Through the Ages</div>
         </div>
     </div>
@@ -262,7 +322,6 @@
                     <p>Emperor Justinian closed the philosophical schools of Athens, marking the end of the classical era and the beginning of the Byzantine period.</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">1458 CE</div>
@@ -270,7 +329,6 @@
                     <p>Athens fell to the Ottoman Empire, beginning a period of Ottoman rule that would last nearly four centuries.</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">1834</div>
@@ -278,7 +336,6 @@
                     <p>After Greek independence, Athens was chosen as the capital of the modern Greek state, beginning its transformation into a modern metropolis.</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">2004</div>
@@ -288,7 +345,6 @@
             </div>
         </div>
     </div>
-
     <footer>
         <p>&copy; 2024 Discover Greece. All rights reserved.</p>
     </footer>
