@@ -10,55 +10,89 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
         }
 
-        .navbar {
-            background-color: #1a5f7a;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        .navbar a:hover {
-            color: #ffd700;
-        }
-
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/1080');
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/600');
             background-size: cover;
             background-position: center;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             text-align: center;
-            margin-top: 3.5rem;
+            color: white;
+            overflow: hidden; 
+        }
+        .header-img{
+        width: 100vw;
+        height: 80vh;
+        object-fit: fill; 
+        filter: brightness(50%); 
+        }
+        .hero-content {
+        position: absolute;
+        color: white; 
+        text-align: center;
+        top: 50%; 
+        transform: translateY(-50%);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+    .hero-content h1 {
+        font-size: 2.5rem; 
+        margin-bottom: 0.5rem; 
+    }
+
+    .hero-content p {
+        font-size: 1.25rem;
+    }
+        .back-home {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        nav {
+            background-color: #7091e6;
+            padding: 1.2rem;
+            position: sticky;
+            top:0;
+            z-index:10;
+        }
+        .title{
+            align-self: flex-start;
+            font-size: x-large;
+        }
+        .middle{
+            display: flex;
+            gap:0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #3d52a0;
         }
 
         .food-section {
@@ -126,42 +160,53 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <nav>
         <ul>
-            <li><a href="#">Athens</a></li>
-            <li><a href="#">Crete</a></li>
-            <li><a href="#">Mykonos</a></li>
-            <li><a href="#">Delphi</a></li>
-            <li><a href="#">Santorini</a></li>
+            <div>
+                <li><a href="../index.html" class="title">Greecious</a></li>
+            </div>
+            <div class="middle">
+                <li><a href="history.html">History</a></li>
+                <li><a href="festivals.html">Cultural Festivals</a></li>
+                <li><a href="places.html">Places to Visit</a></li>
+                <li><a href="food.html">Food & Drink</a></li>
+                <li><a href="guide.html">Travel Guide</a></li>
+            </div>
+            <div>
+
+            </div>
         </ul>
     </nav>
+    
+    <header>
+        <img src="../assets/athens/header.jpg" alt="image" class="header-img">
 
-    <div class="hero">
         <div class="hero-content">
             <h1>Athens Food Guide</h1>
             <p>Discover the authentic flavors of Greek cuisine</p>
         </div>
-    </div>
+    </header>
+
 
     <section class="food-section">
         <h2 class="section-title">Popular Local Dishes</h2>
         <div class="food-grid">
             <div class="food-card">
-                <img src="/api/placeholder/400/300" alt="Moussaka" class="food-img">
+                <img src="../assets/athens/mous.jpeg" alt="Moussaka" class="food-img">
                 <div class="food-info">
                     <h3>Moussaka</h3>
                     <p>A hearty layered dish of eggplant, spiced ground meat, and béchamel sauce. A true Greek classic!</p>
                 </div>
             </div>
             <div class="food-card">
-                <img src="/api/placeholder/400/300" alt="Souvlaki" class="food-img">
+                <img src="../assets/athens/souv.webp" alt="Souvlaki" class="food-img">
                 <div class="food-info">
                     <h3>Souvlaki</h3>
                     <p>Grilled meat skewers served with pita bread, tzatziki, and fresh vegetables.</p>
                 </div>
             </div>
             <div class="food-card">
-                <img src="/api/placeholder/400/300" alt="Greek Salad" class="food-img">
+                <img src="../assets/athens/salad.jpeg" alt="Greek Salad" class="food-img">
                 <div class="food-info">
                     <h3>Horiatiki (Greek Salad)</h3>
                     <p>Fresh tomatoes, cucumbers, onions, olives, and feta cheese drizzled with olive oil.</p>
@@ -174,21 +219,21 @@
         <h2 class="section-title">Traditional Drinks</h2>
         <div class="food-grid">
             <div class="food-card">
-                <img src="/api/placeholder/400/300" alt="Ouzo" class="food-img">
+                <img src="../assets/athens/ouzu.jpeg" alt="Ouzo" class="food-img">
                 <div class="food-info">
                     <h3>Ouzo</h3>
                     <p>An anise-flavored aperitif that's traditionally served with mezedes (appetizers).</p>
                 </div>
             </div>
             <div class="food-card">
-                <img src="/api/placeholder/400/300" alt="Greek Coffee" class="food-img">
+                <img src="../assets/athens/cof.webp" alt="Greek Coffee" class="food-img">
                 <div class="food-info">
                     <h3>Greek Coffee</h3>
                     <p>Rich, strong coffee served in a small cup with grounds at the bottom.</p>
                 </div>
             </div>
             <div class="food-card">
-                <img src="/api/placeholder/400/300" alt="Retsina" class="food-img">
+                <img src="../assets/athens/retsina.jpg" alt="Retsina" class="food-img">
                 <div class="food-info">
                     <h3>Retsina</h3>
                     <p>Traditional Greek white wine flavored with pine resin, a unique taste of Greece.</p>
