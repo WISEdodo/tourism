@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Guide to Crete - Transportation & Getting Around</title>
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #f4a261;
+            --light: #f8f9fa;
+            --accent: #e76f51;
+            --text: #2b2d42;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .hero {
+            background-color: var(--primary);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            background-image: linear-gradient(rgba(26, 95, 122, 0.9), rgba(26, 95, 122, 0.9));
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tabs {
+            background: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .transport-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .transport-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .transport-content {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .transport-content.active {
+            display: block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .info-box {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .route-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .price-tag {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .tip-box {
+            background: #e9ecef;
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .schedule-item {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .tab-buttons {
+                flex-direction: column;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.5rem;
+    background-color: #1d3557; /* Dark background for better contrast */
+    color: white;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .logoImg {
+    height: 50px;
+    width: 50px;
+}
+
+/* Navigation Links styling */
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav__item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav__item a:hover, .nav__item a:focus {
+    background-color: #457b9d;
+    color: #f1faee;
+    border-radius: 0.3125rem;
+}
+
+.nav__item a:active {
+    background-color: #1d3557;
+    color: #f1faee;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <header class="navbar">
+            <a href="index.html" class="logo">Greecious</a>
+            
+            <!-- Navigation Links -->
+            <ul class="nav__links">
+                <li class="nav__item"><a href="history.html">History</a></li>
+                <li class="nav__item"><a href="culture&festival.html">Culture&Festivals</a></li>
+                <li class="nav__item"><a href="places.html">Places to Visit</a></li>
+                <li class="nav__item"><a href="food.html">Food & Drinks</a></li>
+                <li class="nav__item"><a href="travel.html">Travel Guide</a></li>
+            </ul>
+    
+            <!-- Mobile Menu Icon -->
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+        </div>
+    <div class="hero">
+        <h1>Getting to & Around Crete</h1>
+        <p>Your comprehensive guide to transportation options</p>
+    </div>
+
+    <div class="tabs">
+        <div class="tab-buttons" id="tabButtons">
+            <button class="tab-btn active" data-tab="getting-there">Getting There</button>
+            <button class="tab-btn" data-tab="public-transport">Public Transport</button>
+            <button class="tab-btn" data-tab="car-rental">Car Rental</button>
+            <button class="tab-btn" data-tab="taxi-transfer">Taxi & Transfers</button>
+        </div>
+    </div>
+
+    <div class="container" id="contentContainer"></div>
+
+    <script>
+        const travelData = {
+            'getting-there': {
+                title: 'Getting to Crete',
+                sections: [
+                    {
+                        title: 'Airports in Crete',
+                        content: `
+                            <div class="info-grid">
+                                <div class="info-box">
+                                    <h4>Heraklion International (HER)</h4>
+                                    <p>Main airport, serving most international flights</p>
+                                    <span class="price-tag">€35-45 taxi to city</span>
+                                </div>
+                                <div class="info-box">
+                                    <h4>Chania International (CHQ)</h4>
+                                    <p>Serves western Crete, popular for European flights</p>
+                                    <span class="price-tag">€25-35 taxi to city</span>
+                                </div>
+                                <div class="info-box">
+                                    <h4>Sitia Airport (JSH)</h4>
+                                    <p>Small airport serving eastern Crete</p>
+                                    <span class="price-tag">€20-30 taxi to city</span>
+                                </div>
+                            </div>
+                            <div class="tip-box">
+                                <h4>Travel Tip</h4>
+                                <p>Book flights to Heraklion for central Crete, Chania for western Crete, and Sitia for eastern Crete to minimize transfer times.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Ferries to Crete',
+                        content: `
+                            <div class="route-card">
+                                <h4>Piraeus (Athens) to Heraklion</h4>
+                                <p>Duration: 9-10 hours overnight</p>
+                                <span class="price-tag">€35-70 per person</span>
+                            </div>
+                            <div class="route-card">
+                                <h4>Piraeus to Chania</h4>
+                                <p>Duration: 8-9 hours overnight</p>
+                                <span class="price-tag">€35-65 per person</span>
+                            </div>
+                            <div class="tip-box">
+                                <h4>Ferry Tips</h4>
+                                <p>Book overnight ferries to save on accommodation and arrive fresh in the morning. Consider cabin options for more comfort.</p>
+                            </div>
+                        `
+                    }
+                ]
+            },
+            'public-transport': {
+                title: 'Public Transportation',
+                sections: [
+                    {
+                        title: 'Local Buses (KTEL)',
+                        content: `
+                            <div class="info-grid">
+                                <div class="info-box">
+                                    <h4>Heraklion Network</h4>
+                                    <p>Extensive coverage of central Crete</p>
+                                    <span class="price-tag">€1.70-15</span>
+                                </div>
+                                <div class="info-box">
+                                    <h4>Chania Network</h4>
+                                    <p>Western Crete coverage</p>
+                                    <span class="price-tag">€1.70-12</span>
+                                </div>
+                            </div>
+                            <div class="schedule-grid">
+                                <div class="schedule-item">
+                                    <h4>Peak Season</h4>
+                                    <p>Every 15-30 minutes</p>
+                                </div>
+                                <div class="schedule-item">
+                                    <h4>Off Season</h4>
+                                    <p>Every 30-60 minutes</p>
+                                </div>
+                            </div>
+                            <div class="tip-box">
+                                <h4>Bus Tips</h4>
+                                <p>Buy tickets at stations or kiosks before boarding. Validate your ticket upon entering the bus.</p>
+                            </div>
+                        `
+                    }
+                ]
+            },
+            'car-rental': {
+                title: 'Car Rental Options',
+                sections: [
+                    {
+                        title: 'Rental Information',
+                        content: `
+                            <div class="info-grid">
+                                <div class="info-box">
+                                    <h4>Requirements</h4>
+                                    <ul>
+                                        <li>Valid driving license</li>
+                                        <li>Credit card</li>
+                                        <li>Age 21+ (25+ preferred)</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box">
+                                    <h4>Average Costs</h4>
+                                    <p>Economy: €30-45/day</p>
+                                    <p>Mid-size: €45-60/day</p>
+                                    <p>SUV: €60-90/day</p>
+                                </div>
+                            </div>
+                            <div class="tip-box">
+                                <h4>Rental Tips</h4>
+                                <p>Book in advance during peak season (July-September). Consider insurance options for mountain roads.</p>
+                            </div>
+                        `
+                    }
+                ]
+            },
+            'taxi-transfer': {
+                title: 'Taxis & Private Transfers',
+                sections: [
+                    {
+                        title: 'Taxi Services',
+                        content: `
+                            <div class="info-grid">
+                                <div class="info-box">
+                                    <h4>City Taxis</h4>
+                                    <p>Starting fare: €3.50</p>
+                                    <p>Per km: €0.80</p>
+                                </div>
+                                <div class="info-box">
+                                    <h4>Airport Transfers</h4>
+                                    <p>Fixed rates available</p>
+                                    <p>Pre-booking recommended</p>
+                                </div>
+                            </div>
+                            <div class="tip-box">
+                                <h4>Taxi Tips</h4>
+                                <p>Use official taxi stands or book through your hotel. Ensure meter is running for city trips.</p>
+                            </div>
+                        `
+                    }
+                ]
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupTabs();
+            showContent('getting-there');
+        });
+
+        function setupTabs() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    showContent(button.dataset.tab);
+                });
+            });
+        }
+
+        function showContent(tabId) {
+            const container = document.getElementById('contentContainer');
+            const data = travelData[tabId];
+            
+            let html = `<h2>${data.title}</h2>`;
+            
+            data.sections.forEach(section => {
+                html += `
+                    <div class="transport-card">
+                        <div class="transport-header">
+                            <h3>${section.title}</h3>
+                        </div>
+                        <div class="transport-content active">
+                            ${section.content}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

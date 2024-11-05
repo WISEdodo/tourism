@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Must-Visit Places in Crete</title>
+    <style>
+        :root {
+            --primary: #005a87;
+            --secondary: #f4a261;
+            --light: #f5f5f5;
+            --dark: #2b2d42;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 8rem;
+            text-align: center;
+        }
+        .filters {
+            background-color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .place-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .place-card:hover {
+            transform: translateY(-5px);
+        }
+        .place-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .place-info {
+            padding: 1.5rem;
+        }
+        .place-type {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .read-more {
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.5rem;
+    background-color: #1d3557; /* Dark background for better contrast */
+    color: white;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .logoImg {
+    height: 50px;
+    width: 50px;
+}
+
+/* Navigation Links styling */
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav__item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav__item a:hover, .nav__item a:focus {
+    background-color: #457b9d;
+    color: #f1faee;
+    border-radius: 0.3125rem;
+}
+
+.nav__item a:active {
+    background-color: #1d3557;
+    color: #f1faee;
+}
+    </style>
+</head>
+<body>
+    <div>
+    <header class="navbar">
+        <a href="index.html" class="logo">Greecious</a>
+        
+        <!-- Navigation Links -->
+        <ul class="nav__links">
+            <li class="nav__item"><a href="history.html">History</a></li>
+            <li class="nav__item"><a href="culture&festival.html">Culture&Festivals</a></li>
+            <li class="nav__item"><a href="places.html">Places to Visit</a></li>
+            <li class="nav__item"><a href="food.html">Food & Drinks</a></li>
+            <li class="nav__item"><a href="travel.html">Travel Guide</a></li>
+        </ul>
+
+        <!-- Mobile Menu Icon -->
+        <div class="menu-toggle" id="menuToggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+    </div>
+    <div class="header">
+        <h1>Discover Crete</h1>
+        <p>Explore the magical island of Crete - from ancient ruins to beautiful beaches</p>
+    </div>
+
+    <div class="filters">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-type="all">All Places</button>
+            <button class="filter-btn" data-type="historical">Historical Sites</button>
+            <button class="filter-btn" data-type="beach">Beaches</button>
+            <button class="filter-btn" data-type="nature">Nature</button>
+            <button class="filter-btn" data-type="city">Cities</button>
+        </div>
+    </div>
+
+    <div class="places-grid" id="placesGrid"></div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const places = [
+            {
+                name: "Palace of Knossos",
+                type: "historical",
+                image: "knos.jpg",
+                shortDesc: "The legendary palace of King Minos and the mythical Minotaur, this Bronze Age archaeological site is Crete's most famous attraction.",
+                fullDesc: "The Palace of Knossos is the largest Bronze Age archaeological site on Crete and considered Europe's oldest city. Dating back to 2000-1350 BC, it was the ceremonial and political center of the Minoan civilization. The palace complex features impressive architecture, vibrant frescoes, and intricate pottery. Visitors can explore the royal quarters, central courtyard, throne room, and learn about the fascinating myths associated with the Minotaur and the labyrinth.",
+                location: "Heraklion",
+                visitTips: "Visit early morning or late afternoon to avoid crowds and heat. Guided tours available."
+            },
+            {
+                name: "Elafonisi Beach",
+                type: "beach",
+                image: "elf.jpeg",
+                shortDesc: "Famous for its pink sand and crystal-clear waters, Elafonisi is a paradise on Earth.",
+                fullDesc: "Elafonisi is a magical place where you'll find shallow waters, pink-tinted sand, and small coves perfect for swimming. The area is a protected nature reserve and features rare plants and wildlife. The beach is actually an island separated from the mainland by a shallow, warm lagoon that you can easily walk through. The pink color of the sand comes from crushed seashells mixed with the white sand.",
+                location: "Southwest Crete",
+                visitTips: "Arrive early to secure parking. Bring umbrella and water as there's limited shade."
+            },
+            {
+                name: "Samaria Gorge",
+                type: "nature",
+                image: "sam.jpg",
+                shortDesc: "Europe's longest gorge offers an unforgettable hiking experience through dramatic landscapes.",
+                fullDesc: "The Samaria Gorge is a National Park of Greece and a World's Biosphere Reserve. The 16 km walk down the gorge starts at an altitude of 1,250m and takes you through forests of ancient cypresses and pines, then between vertical cliffs. The gorge is home to many species of flowers and birds, including the rare Cretan wild goat known as the kri-kri.",
+                location: "White Mountains",
+                visitTips: "Start early morning. Wear proper hiking shoes and bring plenty of water."
+            },
+            {
+                name: "Chania Old Town",
+                type: "city",
+                image: "ci.jpg",
+                shortDesc: "A beautiful Venetian port city with narrow alleys, colorful buildings, and rich history.",
+                fullDesc: "Chania's Old Town is a maze of narrow streets, elegant mansions, and historic monuments reflecting various occupiers including Venetians and Ottomans. The iconic Venetian harbor, lined with restaurants and cafes, is particularly beautiful at sunset. Visit the Maritime Museum, the Archaeological Museum, and the famous covered market. The lighthouse, originally built by the Venetians, is one of the oldest in the Mediterranean.",
+                location: "Western Crete",
+                visitTips: "Best explored on foot. Evening walks are particularly atmospheric."
+            },
+            {
+                name: "Spinalonga Island",
+                type: "historical",
+                image: "sp.jpg",
+                shortDesc: "A former leper colony with a fascinating history and well-preserved Venetian fortress.",
+                fullDesc: "Spinalonga is a small island fortress with a poignant history. Originally built by the Venetians in the 16th century, it later became one of the last active leper colonies in Europe, operating from 1903 to 1957. Today, visitors can explore the restored buildings, walk the fortress walls, and learn about the island's remarkable past through various exhibitions.",
+                location: "Gulf of Elounda",
+                visitTips: "Take a boat from Elounda or Plaka. Guided tours recommended for historical context."
+            },
+            {
+                name: "Preveli Beach",
+                type: "beach",
+                image: "pa.jpg",
+                shortDesc: "A unique beach where a freshwater river meets the sea, surrounded by palm trees.",
+                fullDesc: "Preveli Beach is one of Crete's most distinctive beaches, where the Kourtaliotikos River creates a small lake before flowing into the Libyan Sea. The beach is surrounded by a palm forest, creating an exotic landscape. The cool river water provides a refreshing alternative to the sea, and the surrounding gorge offers excellent hiking opportunities.",
+                location: "South Rethymno",
+                visitTips: "Access involves steps. Bring water shoes for river exploring."
+            }
+        ];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            displayPlaces(places);
+            setupFilters();
+            setupModal();
+        });
+
+        // Display places in grid
+        function displayPlaces(placesToShow) {
+            const grid = document.getElementById('placesGrid');
+            grid.innerHTML = '';
+            
+            placesToShow.forEach(place => {
+                const card = document.createElement('div');
+                card.className = 'place-card';
+                card.innerHTML = `
+                    <img src="../assets/crete/${place.image}" alt="${place.name}" class="place-image">
+                    <div class="place-info">
+                        <span class="place-type">${place.type}</span>
+                        <h3>${place.name}</h3>
+                        <p>${place.shortDesc}</p>
+                        <span class="read-more" data-name="${place.name}">Read more...</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Setup filter buttons
+        function setupFilters() {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Filter places
+                    const type = button.dataset.type;
+                    const filteredPlaces = type === 'all' 
+                        ? places 
+                        : places.filter(place => place.type === type);
+                    displayPlaces(filteredPlaces);
+                });
+            });
+        }
+
+        // Setup modal functionality
+        function setupModal() {
+            const modal = document.getElementById('modal');
+            const closeBtn = document.getElementById('closeModal');
+
+            // Close modal when clicking X or outside
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            };
+
+            // Show modal when clicking "Read more"
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('read-more')) {
+                    const placeName = e.target.dataset.name;
+                    const place = places.find(p => p.name === placeName);
+                    
+                    document.getElementById('modalContent').innerHTML = `
+                        <h2>${place.name}</h2>
+                        <img src="../assets/crete/${place.image}" alt="${place.name}" style="width: 100%; border-radius: 10px; margin: 1rem 0;">
+                        <p>${place.fullDesc}</p>
+                        <h4>Location</h4>
+                        <p>${place.location}</p>
+                        <h4>Visitor Tips</h4>
+                        <p>${place.visitTips}</p>
+                    `;
+                    modal.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* Basic styling */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    scroll-behavior: smooth; /* Smooth scroll for navigation links */
+}
+
+/* Hero section styling */
+.hero {
+    padding-top: 31px;
+
+    position: relative;
+    height: 25vh; /* Responsive height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Timeline styling */
+.timeline {
+    border-left: 4px solid #1d3557;
+    padding-left: 20px;
+    margin: 40px 0;
+}
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+.timeline-item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #1d3557;
+    position: absolute;
+    left: -28px;
+    top: 5px;
+    border-radius: 50%;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+h2 {
+    color: #1d3557;
+    margin-top: 2rem;
+}
+
+/* Image styling */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.5rem;
+    background-color: #1d3557; /* Dark background for better contrast */
+    color: white;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .logoImg {
+    height: 50px;
+    width: 50px;
+}
+
+/* Navigation Links styling */
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav__item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav__item a:hover, .nav__item a:focus {
+    background-color: #457b9d;
+    color: #f1faee;
+    border-radius: 0.3125rem;
+}
+
+.nav__item a:active {
+    background-color: #1d3557;
+    color: #f1faee;
+}

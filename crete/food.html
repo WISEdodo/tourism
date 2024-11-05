@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cretan Cuisine - Traditional Food & Drinks</title>
+    <style>
+        :root {
+            --olive: #556b2f;
+            --cream: #fdf6e3;
+            --terra: #c17817;
+            --sage: #8a9a5b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background-color: var(--olive);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        nav {
+            background-color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--olive);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--olive);
+            color: white;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--olive);
+            margin-bottom: 2rem;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--sage);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .recipe-btn {
+            display: inline-block;
+            background-color: var(--terra);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .ingredients-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .steps-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .steps-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.5rem;
+    background-color: #1d3557; /* Dark background for better contrast */
+    color: white;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .logoImg {
+    height: 50px;
+    width: 50px;
+}
+
+/* Navigation Links styling */
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav__item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav__item a:hover, .nav__item a:focus {
+    background-color: #457b9d;
+    color: #f1faee;
+    border-radius: 0.3125rem;
+}
+
+.nav__item a:active {
+    background-color: #1d3557;
+    color: #f1faee;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <header class="navbar">
+            <a href="index.html" class="logo">Greecious</a>
+            
+            <!-- Navigation Links -->
+            <ul class="nav__links">
+                <li class="nav__item"><a href="history.html">History</a></li>
+                <li class="nav__item"><a href="culture&festival.html">Culture&Festivals</a></li>
+                <li class="nav__item"><a href="places.html">Places to Visit</a></li>
+                <li class="nav__item"><a href="food.html">Food & Drinks</a></li>
+                <li class="nav__item"><a href="travel.html">Travel Guide</a></li>
+            </ul>
+    
+            <!-- Mobile Menu Icon -->
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+        </div>
+    <div class="hero">
+        <h1>Cretan Cuisine</h1>
+        <p>Discover the flavors of Greece's largest island</p>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#main-dishes">Main Dishes</a></li>
+            <li><a href="#meze">Meze & Appetizers</a></li>
+            <li><a href="#drinks">Traditional Drinks</a></li>
+            <li><a href="#desserts">Desserts</a></li>
+        </ul>
+    </nav>
+
+    <div id="main-dishes" class="section">
+        <h2 class="section-title">Main Dishes</h2>
+        <div class="food-grid" id="mainDishesGrid"></div>
+    </div>
+
+    <div id="meze" class="section">
+        <h2 class="section-title">Meze & Appetizers</h2>
+        <div class="food-grid" id="mezeGrid"></div>
+    </div>
+
+    <div id="drinks" class="section">
+        <h2 class="section-title">Traditional Drinks</h2>
+        <div class="food-grid" id="drinksGrid"></div>
+    </div>
+
+    <div id="desserts" class="section">
+        <h2 class="section-title">Desserts</h2>
+        <div class="food-grid" id="dessertsGrid"></div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const foods = {
+            mainDishes: [
+                {
+                    name: "Gamopilafo",
+                    tag: "Traditional",
+                    image: "ga.jpg",
+                    description: "A traditional Cretan wedding rice pilaf cooked in lamb or beef broth.",
+                    ingredients: [
+                        "Rice", "Lamb or goat meat", "Butter", "Lemon juice",
+                        "Onions", "Salt and pepper", "Bay leaves"
+                    ],
+                    recipe: [
+                        "Cook the meat until tender in water with bay leaves and onions",
+                        "Strain and reserve the broth",
+                        "Cook rice in the meat broth until fluffy",
+                        "Serve with the meat and lemon juice"
+                    ]
+                },
+                {
+                    name: "Dakos",
+                    tag: "Light Meal",
+                    image: "da.jpg",
+                    description: "A Cretan rusk topped with chopped tomatoes, feta cheese, and olive oil.",
+                    ingredients: [
+                        "Barley rusks", "Ripe tomatoes", "Feta cheese",
+                        "Extra virgin olive oil", "Oregano", "Salt"
+                    ],
+                    recipe: [
+                        "Slightly dampen the rusks with water",
+                        "Top with grated tomatoes",
+                        "Add crumbled feta cheese",
+                        "Drizzle with olive oil and sprinkle oregano"
+                    ]
+                }
+            ],
+            meze: [
+                {
+                    name: "Kalitsounia",
+                    tag: "Appetizer",
+                    image: "ka.jpg",
+                    description: "Small pastries filled with herbs, cheese, or sweet ingredients.",
+                    ingredients: [
+                        "Flour", "Olive oil", "Water", "Wild greens or cheese",
+                        "Salt", "Pepper"
+                    ],
+                    recipe: [
+                        "Make dough with flour, oil, and water",
+                        "Prepare filling with chosen ingredients",
+                        "Form small pies",
+                        "Fry or bake until golden"
+                    ]
+                },
+                {
+                    name: "Marathopites",
+                    tag: "Flatbread",
+                    image: "ma.jpg",
+                    description: "Traditional fennel pies made with fresh fennel leaves.",
+                    ingredients: [
+                        "Flour", "Fennel", "Olive oil", "Salt"
+                    ],
+                    recipe: [
+                        "Mix flour with water to make dough",
+                        "Chop fennel finely",
+                        "Roll out dough and add fennel",
+                        "Cook on hot griddle"
+                    ]
+                }
+            ],
+            drinks: [
+                {
+                    name: "Tsikoudia (Raki)",
+                    tag: "Spirit",
+                    image: "ts.jpg",
+                    description: "A grape-based pomace brandy, traditional spirit of Crete.",
+                    ingredients: [
+                        "Grape pomace", "Water"
+                    ],
+                    recipe: [
+                        "Ferment grape pomace",
+                        "Distill in copper stills",
+                        "Age briefly",
+                        "Serve chilled"
+                    ]
+                },
+                {
+                    name: "Cretan Wine",
+                    tag: "Wine",
+                    image: "wi.jpg",
+                    description: "Local wines made from indigenous grape varieties like Vidiano and Kotsifali.",
+                    ingredients: [
+                        "Local grape varieties", "Traditional winemaking methods"
+                    ],
+                    recipe: [
+                        "Harvest grapes at optimal ripeness",
+                        "Crush and ferment",
+                        "Age according to variety",
+                        "Bottle and enjoy"
+                    ]
+                }
+            ],
+            desserts: [
+                {
+                    name: "Loukoumades",
+                    tag: "Sweet",
+                    image: "la.jpg",
+                    description: "Deep-fried dough balls drizzled with honey and cinnamon.",
+                    ingredients: [
+                        "Flour", "Yeast", "Water", "Sugar",
+                        "Honey", "Cinnamon", "Oil for frying"
+                    ],
+                    recipe: [
+                        "Make yeast dough and let rise",
+                        "Form small balls",
+                        "Deep fry until golden",
+                        "Drizzle with honey and cinnamon"
+                    ]
+                },
+                {
+                    name: "Xerotigana",
+                    tag: "Traditional",
+                    image: "xe.jpeg",
+                    description: "Spiral-shaped fried pastries with honey and nuts.",
+                    ingredients: [
+                        "Flour", "Olive oil", "Raki", "Honey",
+                        "Walnuts", "Cinnamon"
+                    ],
+                    recipe: [
+                        "Make dough with flour, oil, and raki",
+                        "Roll into thin strips and form spirals",
+                        "Fry until golden",
+                        "Dip in honey and sprinkle with nuts"
+                    ]
+                }
+            ]
+        };
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            displayFoods();
+            setupModal();
+        });
+
+        // Display foods in respective sections
+        function displayFoods() {
+            Object.keys(foods).forEach(category => {
+                const grid = document.getElementById(`${category}Grid`);
+                foods[category].forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'food-card';
+                    card.innerHTML = `
+                        <img src="../assets/crete/${item.image}" alt="${item.name}" class="food-image">
+                        <div class="food-info">
+                            <span class="tag">${item.tag}</span>
+                            <h3>${item.name}</h3>
+                            <p>${item.description}</p>
+                            <button class="recipe-btn" data-category="${category}" data-name="${item.name}">View Recipe</button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            });
+        }
+
+        // Setup modal functionality
+        function setupModal() {
+            const modal = document.getElementById('recipeModal');
+            const closeBtn = document.getElementById('closeModal');
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            };
+
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('recipe-btn')) {
+                    const category = e.target.dataset.category;
+                    const name = e.target.dataset.name;
+                    const item = foods[category].find(i => i.name === name);
+                    
+                    document.getElementById('modalContent').innerHTML = `
+                        <h2>${item.name}</h2>
+                        <img src="${item.image}" alt="${item.name}" style="width: 100%; border-radius: 10px; margin: 1rem 0;">
+                        <p>${item.description}</p>
+                        <h3>Ingredients</h3>
+                        <ul class="ingredients-list">
+                            ${item.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                        <h3>Preparation</h3>
+                        <ol class="steps-list">
+                            ${item.recipe.map(step => `<li>${step}</li>`).join('')}
+                        </ol>
+                    `;
+                    modal.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
